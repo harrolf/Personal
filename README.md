@@ -1,14 +1,10 @@
 # HARROLF HEMEL
 
-| | |
-|---|---|
-| **Nationality** | Dutch |
-| **Date & Place of Birth** | {Date Disclosed} - {Addres Details Disclosed}, The Netherlands |
-| **Mobile** | {Mobile Phone Number Disclosed} |
-| **E-mail** | {e-Mail Disclosed} |
-| **Address** | {Addres Details Disclosed} , Switzerland |
-| **Swiss Permit** | EU/EFTA C permit |
-| **LinkedIn** | [linkedin.com/in/harrolf](http://www.linkedin.com/in/harrolf) |
+
+|   |   |
+| -- | -----------------|
+| <img style="float: right;" width="200" height="1536" alt="AI generated headshot, very realistic" src="https://github.com/user-attachments/assets/cda8fa37-7c66-452e-b42c-a97b137f0d9d" /> | <table><tr><td><b>Nationality<b> </td><td> Dutch </td><tr><td><b>Date & Place of Birth<b> </td><td> {Date Disclosed} - {Addres Details Disclosed}, The Netherlands </td><tr><td><b>Mobile<b> </td><td> {Mobile Phone Number Disclosed} </td><tr><td><b>E-mail<b> </td><td> {e-Mail Disclosed} </td><tr><td><b>Address<b> </td><td> {Addres Details Disclosed} , Switzerland </td><tr><td><b>Swiss Permit<b> </td><td> EU/EFTA C permit </td><tr><td><b>Mobile<b> </td><td> Dutch </td><tr><td><b>LinkedIn<b> </td><td> [linkedin.com/in/harrolf](http://www.linkedin.com/in/harrolf) </td></table> |
+
 
 ## Summary
 
@@ -20,14 +16,14 @@ Technology leader with 20+ years of experience architecting and delivering trans
 
 ## Employer Summary
 
-| Period | Company | Role |
-|--------|---------|------|
-| 2022 – 2025 | [neon Switzerland AG](#neon-switzerland-ag--zürich-switzerland) | Deputy CTO / Head of Architecture, Engineering & Partners  |
-| 2017 – 2022 | [Credit Suisse](#credit-suisse--swiss-universal-bank--zürich-switzerland) | Lead of Architecture & Platform Engineering | 
-| 2013 – 2017 | [Pegasystems](#pegasystems--amsterdam-the-netherlands) | Senior System Architect / Engagement Lead |
-| 2013 – 2013 | [Morgan Clark & Company]() | Business Consultant |
-| 2010 – 2012 | [TIBCO Software]() | Senior Solutions Consultant / Technical Specialist |
-| 2005 – 2010 | [Accenture]() | Integration Specialist / Technical Consultant |
+| Period | Company | Website | Role |
+|--------|---------|------|------|
+| 2022 – 2025 | [neon Switzerland AG](#neon-switzerland-ag--zürich-switzerland)| [link](https://www.neon-free.ch/) | Deputy CTO / Head of Architecture, Engineering & Partners  |
+| 2017 – 2022 | [Credit Suisse](#credit-suisse--swiss-universal-bank--zürich-switzerland) *(UBS)* |[link](https://www.ubs.com/) | Lead of Architecture & Platform Engineering | 
+| 2013 – 2017 | [Pegasystems](#pegasystems--amsterdam-the-netherlands) | [link](https://www.pega.com) | Senior System Architect / Engagement Lead |
+| 2013 – 2013 | [Morgan Clark & Co.](#morgan-clark--company--amsterdam-the-netherlands)  *(Mobiquity)* | [link](https://mobiquitytechnologies.com) | Business Consultant |
+| 2010 – 2012 | [TIBCO Software](#tibco-software--rotterdam-the-netherlands)  | [link](https://www.tibco.com) | Senior Solutions Consultant / Technical Specialist |
+| 2005 – 2010 | [Accenture](#accenture--amsterdam-the-netherlands)  | [link](https://www.accenture.com/) | Integration Specialist / Technical Consultant |
 
 ---
 
@@ -115,7 +111,7 @@ Progressed from Developer to Designer roles while implementing enterprise integr
 | Category | Skills |
 |----------|--------|
 | **Process** | SOA \| BPM \| BPMN \| GCP \| SQL \| Digital Transformation \| Business Analysis \| Process Optimization |
-| **Productivity** | MS Office \| Google Suite \| Jira \| Confluence \| Slack \| Miro \| Claude \| ChatGPT \| Gemini | Google Antigravity \|
+| **Productivity** | MS Office \| Google Suite \| Jira \| Confluence \| Slack \| Miro \| Claude \| ChatGPT \| Gemini \| Google Antigravity |
 | **Monitoring** | Grafana \| Splunk \| New Relic \| Uptime Robot \| AppDynamics \| Home Assistant |
 
 ---
