@@ -982,6 +982,10 @@
                 <a href="https://www.linkedin.com/in/harrolf" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href="#home">Back to Top</a>
             </div>
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" onclick="toggleTheme()" role="button" aria-label="Toggle theme">
+                <span id="theme-icon">🌙</span>
+            </div>
             <p class="footer-text">© 2026 Harrolf Hemel. All rights reserved.</p>
         </div>
     </footer>
@@ -992,18 +996,15 @@
         function toggleTheme() {
             const html = document.documentElement;
             const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
             const currentTheme = html.getAttribute('data-theme');
 
             if (currentTheme === 'light') {
-                html.removeAttribute('data-theme');
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Dark';
+                html.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
                 localStorage.setItem('theme', 'dark');
             } else {
                 html.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light';
+                themeIcon.textContent = '🌙';
                 localStorage.setItem('theme', 'light');
             }
         }
@@ -1012,15 +1013,12 @@
         function loadTheme() {
             const savedTheme = localStorage.getItem('theme');
             const themeIcon = document.getElementById('theme-icon');
-            const themeText = document.getElementById('theme-text');
 
             if (savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light';
-            } else {
                 themeIcon.textContent = '🌙';
-                themeText.textContent = 'Dark';
+            } else {
+                themeIcon.textContent = '☀️';
             }
         }
 
