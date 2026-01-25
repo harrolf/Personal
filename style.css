@@ -14,6 +14,16 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  /* Z-Index Layers */
+  --z-background: -1;
+  --z-normal: 1;
+  --z-overlay: 950;
+  --z-nav-drawer: 998;
+  --z-header: 1000;
+  --z-dropdown: 1001;
+  --z-modal: 2000;
+  --z-tooltip: 2000;
+
   --border-radius: 16px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -126,7 +136,7 @@ a:hover {
   /* Fallback / Base */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1rem 2rem;
-  z-index: 1000;
+  z-index: var(--z-header);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
@@ -141,7 +151,7 @@ a:hover {
   height: 100%;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  z-index: -1;
+  z-index: var(--z-background);
 }
 
 .header-container {
@@ -211,22 +221,33 @@ a:hover {
   font-size: 1.25rem;
 }
 
-/* ===== Desktop Navigation ===== */
-.main-nav {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
+/* Global Navigation Lists Reset */
 .main-nav ul {
   list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
+/* ===== Desktop Navigation (Min-width: 769px) ===== */
+@media (min-width: 769px) {
+  .main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Target direct child to avoid specificty wars with dropdowns */
+  .main-nav>ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Base Link Styles (Shared) */
 .main-nav a {
   color: var(--text-secondary);
   font-weight: 500;
@@ -250,7 +271,7 @@ a:hover {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 1001;
+  z-index: var(--z-dropdown);
 }
 
 .hamburger-box {
@@ -307,12 +328,12 @@ a:hover {
   transform: rotate(-90deg);
 }
 
-/* Dropdown Menu Styles - Desktop keying off .main-nav */
+/* Dropdown Menu Styles */
 .main-nav ul li {
   position: relative;
 }
 
-.main-nav .dropdown {
+.dropdown {
   position: absolute;
   top: 100%;
   left: 50%;
@@ -327,13 +348,14 @@ a:hover {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: var(--z-dropdown);
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-.main-nav ul li:hover .dropdown {
+.main-nav ul li:hover .dropdown,
+.main-nav ul li:focus-within .dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -1051,7 +1073,7 @@ footer {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
-    z-index: -1;
+    z-index: var(--z-background);
     /* Behind the menu content but above main page content effectively */
     pointer-events: none;
   }
@@ -1067,7 +1089,12 @@ footer {
   }
 
   /* Reset ul for vertical stacking */
+  /* Reset ul for vertical stacking */
   .main-nav ul {
+    list-style: none;
+    /* Removed bullets */
+    padding: 0;
+    margin: 0;
     flex-direction: column;
     justify-content: flex-start;
     gap: 0;
