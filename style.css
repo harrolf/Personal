@@ -116,111 +116,203 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ===== Theme Toggle ===== */
-.theme-toggle {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
-}
-
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.theme-toggle span {
-  font-size: 1.5rem;
-}
-
-.lang-toggle {
-  position: fixed;
-  top: 2rem;
-  right: 6rem;
-  z-index: 1000;
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
-  text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.lang-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  color: var(--accent-primary);
-}
-
-/* ===== Navigation ===== */
-nav {
+/* ===== Site Header ===== */
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: var(--bg-card);
-  backdrop-filter: blur(10px);
+  /* Fallback / Base */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1rem 2rem;
-  z-index: 999;
+  z-index: 1000;
   box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
-nav ul {
+/* Use pseudo-element for backdrop-filter to avoid creating a containing block for fixed children */
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Nav Brand (Hidden on Desktop by default unless desired) */
+.nav-brand {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  display: none;
+  /* Hidden on large screens, show on mobile */
+  text-decoration: none;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Header Actions container */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ===== Toggles (Theme & Language) Refactored ===== */
+/* Resetting fixed positions to standard buttons */
+.theme-toggle,
+.lang-toggle {
+  position: static;
+  /* No longer fixed */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: none;
+  /* Reset shadow */
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.theme-toggle span {
+  font-size: 1.25rem;
+}
+
+/* ===== Desktop Navigation ===== */
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 2rem;
-  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
-nav a {
+.main-nav a {
   color: var(--text-secondary);
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   transition: var(--transition);
   text-decoration: none;
+  display: block;
 }
 
-nav a:hover {
+.main-nav a:hover {
   color: var(--accent-primary);
   background: rgba(0, 212, 255, 0.1);
-  text-decoration: none;
 }
 
-/* Dropdown Menu Styles */
-nav ul li {
+/* Mobile Menu Toggle (Hamburger) */
+.mobile-menu-toggle {
+  display: none;
+  /* Hidden on desktop */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburger-box {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
   position: relative;
 }
 
-.dropdown {
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  position: absolute;
+  transition: transform 0.15s ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  position: absolute;
+  transition: transform 0.15s ease;
+}
+
+.hamburger-inner::before {
+  top: -8px;
+}
+
+.hamburger-inner::after {
+  bottom: -8px;
+}
+
+/* Hamburger Active State Animation */
+.mobile-menu-toggle.active .hamburger-inner {
+  transform: rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+/* Dropdown Menu Styles - Desktop keying off .main-nav */
+.main-nav ul li {
+  position: relative;
+}
+
+.main-nav .dropdown {
   position: absolute;
   top: 100%;
   left: 50%;
@@ -241,7 +333,7 @@ nav ul li {
   gap: 0;
 }
 
-nav ul li:hover .dropdown {
+.main-nav ul li:hover .dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -891,27 +983,163 @@ footer {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
-  .theme-toggle {
-    top: 1rem;
-    right: 1rem;
-    padding: 0.5rem 1rem;
-  }
 
-  nav {
+  /* Reset Header padding for mobile */
+  .site-header {
     padding: 1rem;
   }
 
-  nav ul {
-    gap: 0.5rem;
+  /* Show controls on mobile */
+  .nav-brand,
+  .mobile-menu-toggle {
+    display: block;
   }
 
-  nav a {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.875rem;
+  /* Mobile Navigation Drawer */
+  .main-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    height: 100%;
+    /* Ensure full height */
+    max-width: 300px;
+    background: var(--bg-card);
+    /* Lighter background than body for contrast */
+    padding: 4.25rem 1.5rem 1rem;
+    /* Optimized top padding (clears header) and minimized bottom padding */
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    /* Hidden by default */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 998;
+    /* Behind the hamburger button */
+    overflow-y: auto;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    /* Custom Scrollbar for this element */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-primary) transparent;
   }
 
+  .main-nav::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .main-nav::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .main-nav::-webkit-scrollbar-thumb {
+    background-color: var(--accent-primary);
+    border-radius: 4px;
+  }
+
+  /* Backdrop Overlay for better focus */
+  .main-nav::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    /* Covers the rest of the screen */
+    width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Dimming overlay */
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    /* Behind the menu content but above main page content effectively */
+    pointer-events: none;
+  }
+
+  .main-nav.active {
+    transform: translateX(0);
+  }
+
+  /* Activate backdrop when active */
+  .main-nav.active::before {
+    left: -100vw;
+    /* Keeps it positioned but we rely on body::after usually or specifically handled */
+  }
+
+  /* Reset ul for vertical stacking */
+  .main-nav ul {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .main-nav ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Mobile Dropdowns: hidden as requested */
+  .dropdown {
+    display: none !important;
+  }
+
+  .main-nav a {
+    padding: 0.5rem 0;
+    /* Compact but usable padding */
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Separators for items */
+    display: block;
+    width: 100%;
+  }
+
+  /* Remove border from last item */
+  .main-nav>ul>li:last-child>a {
+    border-bottom: none;
+  }
+
+  .dropdown a {
+    /* Kept for reference but hidden */
+    font-size: 0.95rem;
+    padding: 0.75rem 0;
+    color: var(--text-secondary);
+  }
+
+  /* Prevent body scroll when menu open and show overlay */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  body.menu-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 990;
+    /* High enough to cover content, below menu (998) and header (1000) */
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  div.header-container {
+    padding-right: 0.5rem;
+    /* Adjustment for hamburger alignment */
+  }
+
+  /* Adjust Hero padding since header is fixed */
   .hero {
-    padding: 5rem 1rem 3rem;
+    padding-top: 8rem;
   }
 
   .hero-content {
