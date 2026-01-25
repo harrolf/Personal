@@ -102,7 +102,19 @@
 
                 <!-- Language Toggle -->
                 <a href="index.html" class="lang-toggle" aria-label="Wechseln zu Englisch">
-                    <span>EN</span>
+                    <svg class="flag-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="256" cy="256" r="256" fill="#f0f0f0" />
+                        <clipPath id="circleUK">
+                            <circle cx="256" cy="256" r="256" />
+                        </clipPath>
+                        <g clip-path="url(#circleUK)">
+                            <path d="M0 0h512v512H0z" fill="#00247d" />
+                            <path d="M512 0L0 512M0 0l512 512" stroke="#fff" stroke-width="60" />
+                            <path d="M512 0L0 512M0 0l512 512" stroke="#cf142b" stroke-width="40" />
+                            <path d="M256 0v512M0 256h512" stroke="#fff" stroke-width="100" />
+                            <path d="M256 0v512M0 256h512" stroke="#cf142b" stroke-width="60" />
+                        </g>
+                    </svg>
                 </a>
 
                 <!-- Mobile Menu Button -->

@@ -189,7 +189,6 @@ a:hover {
 .theme-toggle,
 .lang-toggle {
   position: static;
-  /* No longer fixed */
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
@@ -205,8 +204,16 @@ a:hover {
   font-weight: 700;
   font-size: 1rem;
   text-decoration: none;
-  box-shadow: none;
-  /* Reset shadow */
+  overflow: hidden;
+  /* Ensure circular crop for flags if needed */
+}
+
+.flag-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .theme-toggle:hover,
