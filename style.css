@@ -507,6 +507,48 @@ a:hover {
   text-decoration: none;
 }
 
+/* Hero Icon Links */
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+
+.icon-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.icon-link svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+  /* For LinkedIn path fill */
+  stroke: currentColor;
+  /* For Downlaod stroke */
+}
+
+/* Specific adjustment for Fill vs Stroke icons if needed, 
+   but currentColor handles both usually if SVG is set up right.
+   LinkedIn SVG uses fill, Download SVG uses stroke.
+*/
+.icon-link svg[fill="none"] {
+  fill: none;
+}
+
+
 
 /* Scroll Indicator */
 .scroll-indicator {
