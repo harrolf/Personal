@@ -147,6 +147,37 @@ a:hover {
   font-size: 1.5rem;
 }
 
+.lang-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 6rem;
+  z-index: 1000;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.lang-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: var(--accent-primary);
+}
+
 /* ===== Navigation ===== */
 nav {
   position: fixed;
@@ -360,6 +391,56 @@ nav ul li:hover .dropdown {
   color: white;
   transform: translateY(-2px);
   text-decoration: none;
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.scroll-indicator a {
+  display: block;
+  padding: 1rem;
+}
+
+.chevron {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-bottom: 3px solid var(--accent-primary);
+  border-right: 3px solid var(--accent-primary);
+  transform: rotate(45deg);
+  transition: var(--transition);
+}
+
+.scroll-indicator:hover .chevron {
+  border-color: var(--accent-secondary);
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
 }
 
 /* ===== Container & Sections ===== */

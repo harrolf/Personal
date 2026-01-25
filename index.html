@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0e27">
     <meta name="description"
         content="Harrolf Hemel - Technology leader with 20+ years of experience in banking and fintech. Deputy CTO at neon Switzerland AG.">
     <meta name="keywords" content="Technology Leader, CTO, Banking, Fintech, Cloud Architecture, Engineering">
@@ -30,9 +31,14 @@
 
 <body>
     <!-- Theme Toggle -->
-    <div class="theme-toggle" onclick="toggleTheme()" role="button" aria-label="Toggle theme">
-        <span id="theme-icon">🌙</span>
+    <div class="theme-toggle" onclick="toggleTheme()" role="button" aria-label="Switch to light theme">
+        <span id="theme-icon">☀️</span>
     </div>
+
+    <!-- Language Toggle -->
+    <a href="index-de.html" class="lang-toggle" aria-label="Switch to German">
+        <span>DE</span>
+    </a>
 
     <!-- Navigation -->
     <nav>
@@ -118,8 +124,17 @@
                         LinkedIn Profile
                     </a>
                     <a href="#experience" class="btn btn-secondary">View Experience</a>
+                    <a href="Harrolf_Hemel_CV.pdf" target="_blank" class="btn btn-secondary"
+                        aria-label="Download CV as PDF">
+                        Download CV
+                    </a>
                 </div>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#experience" aria-label="Scroll down">
+                <span class="chevron"></span>
+            </a>
         </div>
     </section>
 
@@ -992,15 +1007,21 @@
         function toggleTheme() {
             const html = document.documentElement;
             const themeIcon = document.getElementById('theme-icon');
+            const themeToggle = document.querySelector('.theme-toggle');
+            const themeColorMeta = document.querySelector('meta[name="theme-color"]');
             const currentTheme = html.getAttribute('data-theme');
 
             if (currentTheme === 'light') {
                 html.setAttribute('data-theme', 'dark');
                 themeIcon.textContent = '☀️';
+                themeToggle.setAttribute('aria-label', 'Switch to light theme');
+                if (themeColorMeta) themeColorMeta.setAttribute('content', '#0a0e27');
                 localStorage.setItem('theme', 'dark');
             } else {
                 html.setAttribute('data-theme', 'light');
                 themeIcon.textContent = '🌙';
+                themeToggle.setAttribute('aria-label', 'Switch to dark theme');
+                if (themeColorMeta) themeColorMeta.setAttribute('content', '#f8f9fa');
                 localStorage.setItem('theme', 'light');
             }
         }
@@ -1009,12 +1030,19 @@
         function loadTheme() {
             const savedTheme = localStorage.getItem('theme');
             const themeIcon = document.getElementById('theme-icon');
+            const themeToggle = document.querySelector('.theme-toggle');
+            const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
             if (savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
                 themeIcon.textContent = '🌙';
+                themeToggle.setAttribute('aria-label', 'Switch to dark theme');
+                if (themeColorMeta) themeColorMeta.setAttribute('content', '#f8f9fa');
             } else {
+                // Default is dark
                 themeIcon.textContent = '☀️';
+                themeToggle.setAttribute('aria-label', 'Switch to light theme');
+                if (themeColorMeta) themeColorMeta.setAttribute('content', '#0a0e27');
             }
         }
 
